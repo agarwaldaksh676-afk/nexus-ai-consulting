@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus AI Consulting | Enterprise AI & Scalable Cloud Architecture</title>
+  <meta name="description" content="Nexus AI Consulting empowers startups and high-growth companies with production AI systems, cloud architecture, and modern full-stack engineering.">
+  
+  <!-- Modern Google Fonts: Plus Jakarta Sans (Headings) and Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Modern SVG Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310B981' stroke-width='2.5'><polygon points='12 2 2 7 12 12 22 7 12 2'/><polyline points='2 17 12 22 22 17'/><polyline points='2 12 12 17 22 12'/></svg>">
+  
+  <!-- Link to Custom Design System Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- =========================================================
+       ACCESSIBILITY: SKIP-TO-CONTENT KEYBOARD LINK (PACKAGE C)
+       ========================================================= -->
+  <a href="#hero" class="skip-link">Skip to main content</a>
+
+  <!-- =========================================================
+       1. NAVIGATION BAR (Header with Hairline Progress Bar)
+       ========================================================= -->
+  <header class="site-header" id="siteHeader">
+    <!-- Hairline Scroll Progress Bar (Package A) -->
+    <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
+
+    <div class="header-container">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-logo" id="brandLogo" aria-label="Nexus AI Consulting Home">
+        <span class="logo-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+            <polyline points="2 17 12 22 22 17"></polyline>
+            <polyline points="2 12 12 17 22 12"></polyline>
+          </svg>
+        </span>
+        <span class="logo-text">Nexus<span class="logo-highlight">AI</span></span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" id="desktopNav" aria-label="Main Navigation">
+        <a href="#services" class="nav-link">Capabilities</a>
+        <a href="#portfolio" class="nav-link">Case Studies</a>
+        <a href="#process" class="nav-link">Methodology</a>
+        <a href="#pricing" class="nav-link">Investment</a>
+        <a href="#estimator" class="nav-link">Scope Estimator</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </nav>
+
+      <!-- Header Actions: Theme Switcher, Consultation CTA, Mobile Hamburger -->
+      <div class="header-actions">
+        <!-- Dark/Light Mode Switcher Button (With Dynamic ARIA Voiceover) -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" aria-label="Switch to dark mode" title="Toggle theme">
+          <svg id="themeIconSun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="themeIconMoon" style="display:none;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <a href="#contact" class="btn btn-primary nav-cta" id="navConsultationBtn">Book Discovery Call</a>
+        
+        <button class="hamburger-btn" id="mobileMenuBtn" aria-label="Toggle navigation drawer" aria-expanded="false" aria-controls="mobileDrawer">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer Menu (Accessible Full-Screen Overlay) -->
+    <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
+      <nav class="mobile-nav" aria-label="Mobile Navigation">
+        <a href="#services" class="mobile-link"><span>Capabilities</span> <span>&rarr;</span></a>
+        <a href="#portfolio" class="mobile-link"><span>Case Studies</span> <span>&rarr;</span></a>
+        <a href="#process" class="mobile-link"><span>Methodology</span> <span>&rarr;</span></a>
+        <a href="#pricing" class="mobile-link"><span>Investment Models</span> <span>&rarr;</span></a>
+        <a href="#estimator" class="mobile-link"><span>Scope Estimator</span> <span>&rarr;</span></a>
+        <a href="#faq" class="mobile-link"><span>FAQ</span> <span>&rarr;</span></a>
+      </nav>
+      
+      <div class="mobile-drawer-bottom">
+        <a href="#contact" class="btn btn-primary btn-block mobile-cta">Book Discovery Call</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent">
+    <!-- =========================================================
+         2. HERO SECTION
+         Fluid typography, interactive CTAs & animated live counters
+         ========================================================= -->
+    <section class="hero-section" id="hero">
+      <div class="hero-glow-bg" aria-hidden="true"></div>
+      <div class="section-container hero-container">
+        
+        <!-- Live Status Pill -->
+        <div class="status-pill" id="heroStatusPill">
+          <span class="status-dot" aria-hidden="true"></span>
+          <span>Accepting Q4 Engineering Cohorts</span>
+        </div>
+
+        <h1 class="hero-title">
+          Accelerating High-Growth Teams with <span class="gradient-text">Applied AI & Scalable Cloud</span> Systems
+        </h1>
+
+        <p class="hero-subtitle">
+          Nexus AI Consulting helps venture-backed founders and engineering leaders design, prototype, and ship custom AI models, distributed cloud architectures, and high-throughput web systems.
+        </p>
+
+        <!-- Call-to-action buttons with shimmer sweep -->
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary btn-lg" id="heroPrimaryCta">
+            <span>Schedule Discovery Call</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#estimator" class="btn btn-secondary btn-lg" id="heroSecondaryCta">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></svg>
+            <span>Estimate Project Scope</span>
+          </a>
+        </div>
+
+        <!-- Social Proof Metrics Bar with Animated Counters (Package B) -->
+        <div class="hero-metrics-bar" id="heroMetrics">
+          <div class="metric-item">
+            <div class="metric-number" data-target="45" data-suffix="+">45+</div>
+            <div class="metric-label">Production AI Deployments</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number" data-target="99.9" data-decimals="1" data-suffix="%">99.9%</div>
+            <div class="metric-label">Guaranteed System Uptime</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number" data-target="3.8" data-decimals="1" data-suffix="x">3.8x</div>
+            <div class="metric-label">Faster Deployment Velocity</div>
+          </div>
+          <div class="metric-item">
+            <div class="metric-number" data-prefix="$" data-target="24" data-suffix="M+">$24M+</div>
+            <div class="metric-label">Client Market Value Generated</div>
+          </div>
+        </div>
+
+        <!-- Trust Logos Ticker -->
+        <div class="trust-ticker-container">
+          <p class="trust-heading">BACKED BY FOUNDERS SUPPORTED BY TOP VENTURE FIRMS</p>
+          <div class="trust-badges-grid">
+            <div class="trust-badge">⚡ SYNTHWAVE TECH</div>
+            <div class="trust-badge">🔷 APEX LOGIC</div>
+            <div class="trust-badge">🌐 QUANTUM HEALTH</div>
+            <div class="trust-badge">🌿 KINETIC LABS</div>
+            <div class="trust-badge">🛡️ SENTINEL AI</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         3. SERVICES SECTION (WITH FLAGSHIP HIGHLIGHT)
+         ========================================================= -->
+    <section class="section-padding bg-canvas" id="services">
+      <div class="section-container">
+        
+        <div class="section-header text-center">
+          <span class="section-tag">Core Capabilities</span>
+          <h2 class="section-title">End-to-End Technical Excellence</h2>
+          <p class="section-description">
+            From proof-of-concept AI agents to multi-region cloud clusters, our systems are built for battle-tested reliability and high throughput.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          
+          <!-- Flagship Service Card 1 -->
+          <div class="service-card flagship" id="serviceCardAi">
+            <span class="flagship-badge">🔥 Most Requested</span>
+            <div class="service-icon-box bg-emerald-soft" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+              </svg>
+            </div>
+            <h3 class="service-name">Custom AI & LLM Systems</h3>
+            <p class="service-text">
+              Retrieval-Augmented Generation (RAG), autonomous reasoning agents, fine-tuned domain models, and low-latency inference pipelines.
+            </p>
+            <ul class="service-features">
+              <li>Vector Databases (Pinecone, Qdrant, Milvus)</li>
+              <li>Agentic Workflows & Multi-LLM Routing</li>
+              <li>Real-time Guardrails & Model Safety Audits</li>
+            </ul>
+          </div>
+
+          <!-- Service Card 2 -->
+          <div class="service-card" id="serviceCardCloud">
+            <div class="service-icon-box bg-blue-soft" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/>
+              </svg>
+            </div>
+            <h3 class="service-name">Cloud Architecture & DevOps</h3>
+            <p class="service-text">
+              Zero-downtime infrastructure on AWS, GCP, and Azure designed for resilience, automated CI/CD, and cost optimization.
+            </p>
+            <ul class="service-features">
+              <li>Kubernetes, Terraform & GitOps Infrastructure</li>
+              <li>Serverless Auto-scaling Microservices</li>
+              <li>Cloud FinOps (30%+ Infrastructure Reductions)</li>
+            </ul>
+          </div>
+
+          <!-- Service Card 3 -->
+          <div class="service-card" id="serviceCardFullstack">
+            <div class="service-icon-box bg-indigo-soft" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="18" x="3" y="3" rx="2"/>
+                <path d="m9 8 3 3-3 3"/>
+                <path d="M14 14h2"/>
+              </svg>
+            </div>
+            <h3 class="service-name">Full-Stack Web Engineering</h3>
+            <p class="service-text">
+              High-performance web apps built with modern reactive architectures, ultra-fast interfaces, and robust enterprise APIs.
+            </p>
+            <ul class="service-features">
+              <li>Modern React, Next.js & Vue Frameworks</li>
+              <li>GraphQL & High-Throughput RESTful APIs</li>
+              <li>Accessible, Pixel-Perfect UI/UX Design</li>
+            </ul>
+          </div>
+
+          <!-- Service Card 4 -->
+          <div class="service-card" id="serviceCardAdvisory">
+            <div class="service-icon-box bg-amber-soft" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                <path d="m9 12 2 2 4-4"/>
+              </svg>
+            </div>
+            <h3 class="service-name">Tech Advisory & Security Audits</h3>
+            <p class="service-text">
+              Fractional CTO advisory, technical due diligence for funding rounds, security hardening, and SOC-2 / HIPAA readiness.
+            </p>
+            <ul class="service-features">
+              <li>Architecture Health-Check & Refactoring</li>
+              <li>Vulnerability Scans & Penetration Defense</li>
+              <li>Team Mentorship & Tech Stack Roadmaps</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         4. CASE STUDIES / PORTFOLIO SHOWCASE
+         ========================================================= -->
+    <section class="section-padding" id="portfolio">
+      <div class="section-container">
+        
+        <div class="section-header text-center">
+          <span class="section-tag">Proven Results</span>
+          <h2 class="section-title">Case Studies in Production</h2>
+          <p class="section-description">
+            Explore how our cross-functional squads solved mission-critical bottlenecks and delivered measurable commercial impact.
+          </p>
+
+          <!-- Interactive Category Filter Pills (Package A Smooth Transitions) -->
+          <div class="filter-pills" id="portfolioFilterContainer" role="tablist" aria-label="Filter case studies by domain">
+            <button class="filter-pill active" data-filter="all" role="tab" aria-selected="true">All Projects</button>
+            <button class="filter-pill" data-filter="ai" role="tab" aria-selected="false">AI & Machine Learning</button>
+            <button class="filter-pill" data-filter="cloud" role="tab" aria-selected="false">Cloud & Scale</button>
+            <button class="filter-pill" data-filter="fintech" role="tab" aria-selected="false">Fintech & Security</button>
+          </div>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+          
+          <!-- Case Study 1 -->
+          <article class="project-card" data-category="fintech ai">
+            <div class="project-card-header">
+              <span class="project-badge">Fintech & Security</span>
+              <span class="project-time">4 Month Deployment</span>
+            </div>
+            <h3 class="project-title">Real-Time AI Fraud Prevention Engine</h3>
+            <p class="project-summary">
+              Architected a sub-50ms machine learning inference pipeline analyzing 80,000+ daily financial transactions for an emerging neo-bank.
+            </p>
+            <div class="project-impact-box">
+              <div class="impact-stat">
+                <span class="impact-value">-68%</span>
+                <span class="impact-desc">Fraud Incident Rate</span>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-value">12ms</span>
+                <span class="impact-desc">Median API Latency</span>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span>Python</span>
+              <span>FastAPI</span>
+              <span>AWS ECS</span>
+              <span>Redis</span>
+            </div>
+          </article>
+
+          <!-- Case Study 2 -->
+          <article class="project-card" data-category="cloud">
+            <div class="project-card-header">
+              <span class="project-badge">Cloud Infrastructure</span>
+              <span class="project-time">6 Week Sprint</span>
+            </div>
+            <h3 class="project-title">Zero-Downtime Multi-Region Migration</h3>
+            <p class="project-summary">
+              Migrated a monolithic SaaS customer base of 250,000 active users to an auto-scaling Kubernetes cluster across US & EU regions.
+            </p>
+            <div class="project-impact-box">
+              <div class="impact-stat">
+                <span class="impact-value">99.99%</span>
+                <span class="impact-desc">Service Availability</span>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-value">-42%</span>
+                <span class="impact-desc">Monthly AWS Bill</span>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span>Terraform</span>
+              <span>Kubernetes</span>
+              <span>PostgreSQL</span>
+              <span>Docker</span>
+            </div>
+          </article>
+
+          <!-- Case Study 3 -->
+          <article class="project-card" data-category="ai">
+            <div class="project-card-header">
+              <span class="project-badge">Generative AI</span>
+              <span class="project-time">8 Week Sprint</span>
+            </div>
+            <h3 class="project-title">Enterprise Knowledge Assistant (RAG)</h3>
+            <p class="project-summary">
+              Engineered a secure internal intelligence engine that indexes 1.2M technical documents with role-based access controls and precise source attribution.
+            </p>
+            <div class="project-impact-box">
+              <div class="impact-stat">
+                <span class="impact-value">5.2 hrs</span>
+                <span class="impact-desc">Saved Per Engineer/Wk</span>
+              </div>
+              <div class="impact-stat">
+                <span class="impact-value">96.4%</span>
+                <span class="impact-desc">Answer Accuracy</span>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span>LangChain</span>
+              <span>Qdrant</span>
+              <span>OpenAI API</span>
+              <span>Next.js</span>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         5. HOW WE WORK (4-Step Engineering Process Roadmap)
+         ========================================================= -->
+    <section class="section-padding bg-canvas" id="process">
+      <div class="section-container">
+        
+        <div class="section-header text-center">
+          <span class="section-tag">Methodology</span>
+          <h2 class="section-title">The Engineering Roadmap</h2>
+          <p class="section-description">
+            A battle-tested 4-step framework designed to eliminate guesswork, mitigate technical debt, and ensure rapid delivery.
+          </p>
+        </div>
+
+        <div class="process-timeline">
+          
+          <div class="process-step">
+            <div class="step-marker">01</div>
+            <h3 class="step-title">Deep Audit & Strategy</h3>
+            <p class="step-text">
+              We analyze your existing architecture, codebases, and product goals to uncover bottlenecks, security gaps, and AI feasibility.
+            </p>
+            <div class="step-badge">Deliverable: Tech Roadmap & Architecture Spec</div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-marker">02</div>
+            <h3 class="step-title">Interactive Prototype</h3>
+            <p class="step-text">
+              We build a functioning proof-of-concept (PoC) within 2 weeks to validate machine learning model accuracy and user workflows.
+            </p>
+            <div class="step-badge">Deliverable: Working Prototype & Benchmark Report</div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-marker">03</div>
+            <h3 class="step-title">Production Build & Hardening</h3>
+            <p class="step-text">
+              Iterative two-week sprints with automated test suites, CI/CD pipelines, security reviews, and bi-weekly demo check-ins.
+            </p>
+            <div class="step-badge">Deliverable: Production Code & Test Coverage</div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-marker">04</div>
+            <h3 class="step-title">Launch, Scale & Handover</h3>
+            <p class="step-text">
+              We deploy with zero downtime, configure real-time monitoring and alerting, and run team workshops for full ownership handover.
+            </p>
+            <div class="step-badge">Deliverable: Full IP Transfer & Runbook Guides</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         6. PRICING & ENGAGEMENT PACKAGES
+         ========================================================= -->
+    <section class="section-padding" id="pricing">
+      <div class="section-container">
+        
+        <div class="section-header text-center">
+          <span class="section-tag">Investment</span>
+          <h2 class="section-title">Transparent Engagement Models</h2>
+          <p class="section-description">
+            Predictable sprint-based pricing with no surprise hourly invoices. Complete IP transfer on day one.
+          </p>
+
+          <!-- Billing Period Switcher -->
+          <div class="pricing-toggle-container">
+            <span class="toggle-label" id="labelMonthly">Sprint / Monthly</span>
+            <label class="toggle-switch" for="pricingToggle">
+              <input type="checkbox" id="pricingToggle" role="switch" aria-checked="false" aria-label="Toggle quarterly retainer 15% discount">
+              <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label" id="labelQuarterly">Quarterly Retainer <span class="discount-pill">Save 15%</span></span>
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+          
+          <!-- Tier 1: Starter Advisory -->
+          <div class="pricing-card" id="pricingCardStarter">
+            <div class="pricing-header">
+              <h3 class="tier-name">Advisory & Audit</h3>
+              <p class="tier-tagline">Ideal for early-stage teams needing architecture guidance before writing code.</p>
+              <div class="tier-price-box">
+                <span class="currency">$</span>
+                <span class="tier-amount" data-monthly="4,500" data-quarterly="3,825">4,500</span>
+                <span class="tier-period">/ month</span>
+              </div>
+            </div>
+            <ul class="pricing-checklist">
+              <li>Weekly 1-on-1 CTO strategy sessions</li>
+              <li>Architecture & codebase security audit</li>
+              <li>Vendor selection (AWS, GCP, LLMs)</li>
+              <li>Dedicated Slack channel with 24h response</li>
+              <li>Comprehensive design specifications</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline btn-block tier-select-btn" data-tier="Advisory & Audit" data-price="$4,500/mo">Choose Advisory</a>
+          </div>
+
+          <!-- Tier 2: Growth Scale (Featured) -->
+          <div class="pricing-card featured-card" id="pricingCardGrowth">
+            <div class="featured-badge">MOST POPULAR</div>
+            <div class="pricing-header">
+              <h3 class="tier-name">Dedicated Growth Squad</h3>
+              <p class="tier-tagline">Complete engineering squad integrated into your team to build and ship fast.</p>
+              <div class="tier-price-box">
+                <span class="currency">$</span>
+                <span class="tier-amount" data-monthly="9,800" data-quarterly="8,330">9,800</span>
+                <span class="tier-period">/ month</span>
+              </div>
+            </div>
+            <ul class="pricing-checklist">
+              <li>Dedicated Senior Full-Stack + AI Engineers</li>
+              <li>Bi-weekly production sprint releases</li>
+              <li>End-to-end custom LLM / RAG development</li>
+              <li>CI/CD pipeline & cloud infrastructure setup</li>
+              <li>Priority Slack & daily standup syncs</li>
+              <li>Complete IP ownership from day one</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary btn-block tier-select-btn" data-tier="Dedicated Growth Squad" data-price="$9,800/mo">Start Growth Squad</a>
+          </div>
+
+          <!-- Tier 3: Enterprise Custom -->
+          <div class="pricing-card" id="pricingCardEnterprise">
+            <div class="pricing-header">
+              <h3 class="tier-name">Enterprise Custom</h3>
+              <p class="tier-tagline">For established organizations with high compliance, multi-cloud, or massive scale.</p>
+              <div class="tier-price-box">
+                <span class="tier-amount custom-price">Custom</span>
+                <span class="tier-period">Scoped to need</span>
+              </div>
+            </div>
+            <ul class="pricing-checklist">
+              <li>On-premise / private cloud LLM deployment</li>
+              <li>HIPAA, SOC-2 & ISO compliance hardening</li>
+              <li>24/7 incident response & uptime SLA</li>
+              <li>Custom model fine-tuning on proprietary data</li>
+              <li>Executive architecture steering committee</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline btn-block tier-select-btn" data-tier="Enterprise Custom" data-price="Custom Scope">Talk to Leadership</a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         7. INTERACTIVE PROJECT SCOPE & BUDGET ESTIMATOR (PACKAGE A, B)
+         ========================================================= -->
+    <section class="section-padding bg-canvas" id="estimator">
+      <div class="section-container">
+        
+        <div class="section-header text-center">
+          <span class="section-tag">Interactive Calculator</span>
+          <h2 class="section-title">Project Scope & Cost Estimator</h2>
+          <p class="section-description">
+            Select your technical requirements to see a real-time ballpark estimate of timeline, squad composition, and budget.
+          </p>
+        </div>
+
+        <div class="estimator-widget-card" id="estimatorWidget">
+          
+          <div class="estimator-controls">
+            
+            <!-- Question 1: Project Type -->
+            <div class="control-group">
+              <label class="control-label" id="labelProjectType">1. What type of technical project are you building?</label>
+              <div class="pill-selector-grid" id="projectTypeSelector" role="group" aria-labelledby="labelProjectType">
+                <button type="button" class="select-pill active" data-type="ai" data-cost="5500" data-weeks="6" aria-pressed="true">
+                  <span class="pill-title">🤖 Custom AI / LLM Integration</span>
+                </button>
+                <button type="button" class="select-pill" data-type="web" data-cost="6500" data-weeks="8" aria-pressed="false">
+                  <span class="pill-title">💻 Full-Stack Web Platform</span>
+                </button>
+                <button type="button" class="select-pill" data-type="cloud" data-cost="4000" data-weeks="4" aria-pressed="false">
+                  <span class="pill-title">☁️ Cloud Migration & DevOps</span>
+                </button>
+                <button type="button" class="select-pill" data-type="audit" data-cost="3000" data-weeks="3" aria-pressed="false">
+                  <span class="pill-title">🛡️ Security Audit & Advisory</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Question 2: Scope & Complexity (With Sub-Descriptions - Package B) -->
+            <div class="control-group">
+              <label class="control-label" id="labelScopeLevel">2. Project Maturity & Complexity Level</label>
+              <div class="pill-selector-grid" id="scopeLevelSelector" role="group" aria-labelledby="labelScopeLevel">
+                <button type="button" class="select-pill" data-multiplier="0.8" data-level="MVP" aria-pressed="false">
+                  <span class="pill-title">Proof of Concept / MVP</span>
+                  <span class="pill-desc">2–4 wk validation prototype</span>
+                </button>
+                <button type="button" class="select-pill active" data-multiplier="1.0" data-level="Growth" aria-pressed="true">
+                  <span class="pill-title">Production Ready System</span>
+                  <span class="pill-desc">Fully hardened cloud launch</span>
+                </button>
+                <button type="button" class="select-pill" data-multiplier="1.6" data-level="Enterprise" aria-pressed="false">
+                  <span class="pill-title">Enterprise Scale</span>
+                  <span class="pill-desc">High-compliance & custom SLA</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Question 3: Delivery Speed (With Dynamic Fill Slider & Mobile Price Mirror) -->
+            <div class="control-group">
+              <label class="control-label" for="speedRange">
+                <span>3. Desired Delivery Pace: <strong id="speedLabel" class="text-accent">Standard Pace (8-10 wks)</strong></span>
+                <!-- Mobile Live Price Mirror Badge (Package B) -->
+                <span class="mobile-price-mirror" id="mobilePriceMirror">Est: $7,500 – $9,800</span>
+              </label>
+              <div class="slider-container">
+                <input type="range" id="speedRange" min="1" max="3" step="1" value="2" class="range-slider" aria-valuemin="1" aria-valuemax="3" aria-valuenow="2" aria-valuetext="Standard pace, 8 to 10 weeks" aria-label="Desired delivery pace">
+                <div class="range-ticks" aria-hidden="true">
+                  <span>Flexible Pace</span>
+                  <span>Standard Pace</span>
+                  <span>Accelerated Rush</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Dynamic Output Display Box -->
+          <div class="estimator-result-box" id="estimatorResults" aria-live="polite">
+            <div class="result-header">Estimated Project Blueprint</div>
+            
+            <div class="result-amount-display">
+              <span class="est-label">Estimated Investment Range</span>
+              <div class="est-numbers" id="calcPriceDisplay">$7,500 – $9,800</div>
+              <span class="est-subtext">Fixed sprint milestone pricing</span>
+            </div>
+
+            <div class="result-details-grid">
+              <div class="detail-cell">
+                <span class="detail-title">Estimated Timeline</span>
+                <span class="detail-value" id="calcTimelineDisplay">6 – 8 Weeks</span>
+              </div>
+              <div class="detail-cell">
+                <span class="detail-title">Squad Composition</span>
+                <span class="detail-value" id="calcSquadDisplay">1 Tech Lead + 1 AI Eng</span>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-primary btn-block" id="applyEstimateBtn">
+              Apply This Estimate to Contact Form &rarr;
+            </button>
+            <p class="result-guarantee">✨ Includes full IP transfer, production docs & 30-day warranty.</p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         8. CLIENT TESTIMONIALS
+         ========================================================= -->
+    <section class="section-padding" id="testimonials">
+      <div class="section-container">
+        
+        <div class="section-header text-center">
+          <span class="section-tag">Client Voices</span>
+          <h2 class="section-title">What Founders Say</h2>
+          <p class="section-description">
+            Don't just take our word for it. Here is the feedback from technical leaders who trusted Nexus AI.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          
+          <!-- Testimonial 1 -->
+          <div class="testimonial-card">
+            <div class="star-rating" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">
+              “Nexus AI took our vague machine learning requirements and delivered a production-ready vector search platform in just 5 weeks. Our search conversion went up 40% immediately.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar bg-emerald-soft">SJ</div>
+              <div class="author-info">
+                <div class="author-name">
+                  Sarah Jenkins
+                  <svg class="author-verified-icon" viewBox="0 0 24 24" fill="currentColor" aria-label="Verified Client"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <div class="author-role">Founder & CEO, SynthWave Health</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 2 -->
+          <div class="testimonial-card">
+            <div class="star-rating" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">
+              “Finding senior cloud architects who genuinely understand modern AI latency constraints is rare. Nexus AI is by far the highest-velocity engineering partner we’ve ever hired.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar bg-blue-soft">MR</div>
+              <div class="author-info">
+                <div class="author-name">
+                  Marcus Rodriguez
+                  <svg class="author-verified-icon" viewBox="0 0 24 24" fill="currentColor" aria-label="Verified Client"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <div class="author-role">CTO, Apex Logistics Global</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Testimonial 3 -->
+          <div class="testimonial-card">
+            <div class="star-rating" aria-label="5 out of 5 stars">★★★★★</div>
+            <p class="testimonial-quote">
+              “Their code is clean, thoroughly tested, and documented. When we finally hired in-house engineers, the handover was 100% painless. True professionals.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-avatar bg-indigo-soft">EC</div>
+              <div class="author-info">
+                <div class="author-name">
+                  Elena Chen
+                  <svg class="author-verified-icon" viewBox="0 0 24 24" fill="currentColor" aria-label="Verified Client"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </div>
+                <div class="author-role">VP of Engineering, Kinetic Scale</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         9. FREQUENTLY ASKED QUESTIONS (FAQ Accordion)
+         ========================================================= -->
+    <section class="section-padding bg-canvas" id="faq">
+      <div class="section-container max-w-narrow">
+        
+        <div class="section-header text-center">
+          <span class="section-tag">Got Questions?</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-description">
+            Everything you need to know about partnering with Nexus AI Consulting.
+          </p>
+        </div>
+
+        <div class="accordion-container" id="faqAccordion">
+          
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" id="faqTrigger1" aria-controls="faqContent1">
+              <span>Who owns the intellectual property (IP) and code?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content" id="faqContent1" role="region" aria-labelledby="faqTrigger1">
+              <div class="accordion-body">
+                <strong>You own 100% of all intellectual property, code, and trained model weights</strong> from the exact moment they are written. We sign mutual NDAs before any kickoff and transfer all Git repositories and cloud credentials directly to your accounts.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" id="faqTrigger2" aria-controls="faqContent2">
+              <span>How quickly can a sprint team kick off?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content" id="faqContent2" role="region" aria-labelledby="faqTrigger2">
+              <div class="accordion-body">
+                Most client projects kick off within <strong>5 to 7 business days</strong> following our initial discovery call and contract sign-off. We maintain a pre-vetted bench of senior systems architects to eliminate recruiting delays.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" id="faqTrigger3" aria-controls="faqContent3">
+              <span>Can you work alongside our existing in-house engineers?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content" id="faqContent3" role="region" aria-labelledby="faqTrigger3">
+              <div class="accordion-body">
+                Absolutely. Over 60% of our engagements involve pairing directly with existing in-house engineering teams. We plug smoothly into your Jira/Linear boards, GitHub pull request workflows, and daily Slack syncs.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" id="faqTrigger4" aria-controls="faqContent4">
+              <span>What tech stack and AI models do you specialize in?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content" id="faqContent4" role="region" aria-labelledby="faqTrigger4">
+              <div class="accordion-body">
+                We specialize in modern, high-throughput technologies including Python, TypeScript, Node.js, Go, React/Next.js, PostgreSQL, Redis, Docker, and Kubernetes. For AI, we work extensively with OpenAI, Anthropic Claude, open-source HuggingFace/Llama models, and vector stores like Pinecone and Qdrant.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item">
+            <button class="accordion-trigger" aria-expanded="false" id="faqTrigger5" aria-controls="faqContent5">
+              <span>What happens if we need post-launch support?</span>
+              <span class="accordion-icon" aria-hidden="true">+</span>
+            </button>
+            <div class="accordion-content" id="faqContent5" role="region" aria-labelledby="faqTrigger5">
+              <div class="accordion-body">
+                Every project includes <strong>30 days of complimentary bug-fixing and monitoring warranty</strong>. Following that, we offer low-friction monthly maintenance retainers or help you onboard full-time in-house developers.
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================
+         10. CONTACT & CONSULTATION BOOKING
+         ========================================================= -->
+    <section class="section-padding" id="contact">
+      <div class="section-container">
+        
+        <div class="contact-wrapper">
+          
+          <!-- Contact Left: Information & Booking Call -->
+          <div class="contact-info-col">
+            <span class="section-tag">Let's Connect</span>
+            <h2 class="contact-title">Ready to Build Something Remarkable?</h2>
+            <p class="contact-text">
+              Tell us about your technical goals, bottlenecks, or product vision. Our principal architects will review your project and get back to you within 24 hours.
+            </p>
+
+            <div class="contact-details">
+              <div class="contact-detail-row">
+                <div class="detail-icon" aria-hidden="true">✉️</div>
+                <div>
+                  <div class="detail-label">Direct Email</div>
+                  <a href="mailto:hello@nexusai-consulting.com" class="detail-val">hello@nexusai-consulting.com</a>
+                </div>
+              </div>
+              <div class="contact-detail-row">
+                <div class="detail-icon" aria-hidden="true">📍</div>
+                <div>
+                  <div class="detail-label">Headquarters & Remote</div>
+                  <div class="detail-val">San Francisco, CA & Global Remote</div>
+                </div>
+              </div>
+              <div class="contact-detail-row">
+                <div class="detail-icon" aria-hidden="true">⏱️</div>
+                <div>
+                  <div class="detail-label">Guaranteed Response</div>
+                  <div class="detail-val">Within 24 business hours</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="trust-banner-mini">
+              <span>🔒 100% Confidential. Mutual NDA signed before technical deep-dive.</span>
+            </div>
+          </div>
+
+          <!-- Contact Right: Form Card with Dynamic Estimate & Package Chip -->
+          <div class="contact-form-col">
+            <div class="form-card" id="contactCard">
+              
+              <!-- Dynamic Selection Summary Chip (Package B) -->
+              <div class="estimate-chip-box" id="estimateChipBox" style="display: none;">
+                <div class="chip-content">
+                  <span aria-hidden="true">✨</span>
+                  <span id="estimateChipText">Applied Blueprint: Custom AI Integration ($7,500 – $9,800)</span>
+                </div>
+                <button type="button" class="chip-close-btn" id="clearEstimateChip" aria-label="Remove applied selection">&times;</button>
+              </div>
+
+              <h3 class="form-card-title">Schedule a Discovery Call</h3>
+              
+              <form id="consultationForm" novalidate>
+                
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="clientName">Your Name <span class="required" aria-hidden="true">*</span></label>
+                    <input type="text" id="clientName" name="name" placeholder="Jane Doe" required aria-required="true" aria-describedby="nameError">
+                    <span class="field-error" id="nameError" role="alert">Please enter your name</span>
+                  </div>
+                  <div class="form-group">
+                    <label for="clientEmail">Work Email <span class="required" aria-hidden="true">*</span></label>
+                    <input type="email" id="clientEmail" name="email" placeholder="jane@company.com" required aria-required="true" aria-describedby="emailError">
+                    <span class="field-error" id="emailError" role="alert">Please enter a valid work email</span>
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="clientCompany">Company / Project Name</label>
+                    <input type="text" id="clientCompany" name="company" placeholder="Acme Technologies">
+                  </div>
+                  <div class="form-group">
+                    <label for="projectScopeSelect">Primary Area of Interest</label>
+                    <select id="projectScopeSelect" name="scope">
+                      <option value="Custom AI / LLM Solutions">Custom AI / LLM Solutions</option>
+                      <option value="Cloud Architecture & DevOps">Cloud Architecture & DevOps</option>
+                      <option value="Full-Stack Web Engineering">Full-Stack Web Engineering</option>
+                      <option value="Security Audit & Advisory">Security Audit & Advisory</option>
+                      <option value="Other Technical Advisory">Other Technical Advisory</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="budgetTierSelect">Estimated Budget Range</label>
+                  <select id="budgetTierSelect" name="budget">
+                    <option value="$5,000 - $10,000">$5,000 - $10,000 (Sprint MVP)</option>
+                    <option value="$10,000 - $25,000" selected>$10,000 - $25,000 (Growth Build)</option>
+                    <option value="$25,000 - $50,000+">$25,000 - $50,000+ (Comprehensive Squad)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="clientMessage">Project Details & Goals <span class="required" aria-hidden="true">*</span></label>
+                  <textarea id="clientMessage" name="message" rows="4" placeholder="Briefly describe what you're looking to build or optimize..." required aria-required="true" aria-describedby="messageError"></textarea>
+                  <span class="field-error" id="messageError" role="alert">Please share a brief note about your project</span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block btn-lg" id="submitFormBtn">
+                  <span>Send Consultation Request</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                </button>
+
+                <!-- 3-Point Reassurance Trust Strip -->
+                <div class="form-trust-strip">
+                  <span>✓ Mutual NDA Upfront</span>
+                  <span>✓ Response within 24h</span>
+                  <span>✓ Zero Sales Pressure</span>
+                </div>
+
+              </form>
+
+              <!-- Form Success Feedback State -->
+              <div class="form-success-box" id="formSuccessMessage" role="status" aria-live="polite">
+                <div class="success-icon" aria-hidden="true">✓</div>
+                <h4>Consultation Request Received!</h4>
+                <p>Thank you for reaching out. One of our lead architects will review your requirements and follow up at your email within 24 hours.</p>
+                <button type="button" class="btn btn-outline btn-sm" id="resetFormBtn">Send Another Inquiry</button>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================
+       11. SITE FOOTER
+       ========================================================= -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      
+      <div class="footer-brand-col">
+        <a href="#hero" class="brand-logo footer-logo" aria-label="Nexus AI Consulting">
+          <span class="logo-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+          </span>
+          <span class="logo-text">Nexus<span class="logo-highlight">AI</span></span>
+        </a>
+        <p class="footer-tagline">
+          Enterprise-grade AI engineering, cloud systems, and strategic technology advisory for venture-backed innovators.
+        </p>
+        <div class="footer-socials">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub Repository (opens in new tab)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn Profile (opens in new tab)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Twitter / X Profile (opens in new tab)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links-col">
+        <h4 class="footer-heading">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Capabilities</a></li>
+          <li><a href="#portfolio">Case Studies</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#pricing">Pricing Models</a></li>
+          <li><a href="#estimator">Scope Estimator</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4 class="footer-heading">Capabilities</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Custom AI & LLMs</a></li>
+          <li><a href="#services">Cloud Architecture</a></li>
+          <li><a href="#services">DevOps & Kubernetes</a></li>
+          <li><a href="#services">Security Auditing</a></li>
+          <li><a href="#services">Fractional CTO</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4 class="footer-heading">Stay Informed</h4>
+        <p class="footer-news-text">Receive our bi-weekly breakdown of production AI architectures and cloud optimizations.</p>
+        <form class="footer-newsletter" id="newsletterForm" onsubmit="event.preventDefault(); alert('Subscribed to technical updates!');">
+          <input type="email" placeholder="you@company.com" required aria-label="Newsletter email input">
+          <button type="submit" class="btn btn-primary btn-sm">Join</button>
+        </form>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-container">
+        <div>© 2026 Nexus AI Consulting. All rights reserved.</div>
+        <div class="footer-legal-links">
+          <a href="#faq">Privacy Policy</a>
+          <span class="dot-sep">•</span>
+          <a href="#faq">Terms of Service</a>
+          <span class="dot-sep">•</span>
+          <a href="#faq">Security Statement</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Mobile Quick-Action Button (Package C Safe Area) -->
+  <div class="floating-mobile-cta" id="floatingMobileCta">
+    <a href="#contact" class="btn btn-primary btn-sm">⚡ Book Consultation</a>
+  </div>
+
+  <!-- Link to Custom JavaScript Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
