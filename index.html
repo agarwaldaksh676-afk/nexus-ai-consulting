@@ -5,6 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nexus AI Consulting | Enterprise AI & Scalable Cloud Architecture</title>
   <meta name="description" content="Nexus AI Consulting empowers startups and high-growth companies with production AI systems, cloud architecture, and modern full-stack engineering.">
+  <meta name="theme-color" content="#F8FAFC" id="metaThemeColor">
+  <link rel="canonical" href="https://nexusai-consulting.com/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nexusai-consulting.com/">
+  <meta property="og:title" content="Nexus AI Consulting | Enterprise AI & Scalable Cloud Architecture">
+  <meta property="og:description" content="Accelerating high-growth teams with applied AI models, distributed cloud architectures, and high-throughput web systems.">
+  <meta property="og:site_name" content="Nexus AI Consulting">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://nexusai-consulting.com/">
+  <meta name="twitter:title" content="Nexus AI Consulting | Enterprise AI & Scalable Cloud Architecture">
+  <meta name="twitter:description" content="Accelerating high-growth teams with applied AI models, distributed cloud architectures, and high-throughput web systems.">
+
+  <!-- JSON-LD Structured Data for Enterprise Tech Consultancy -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Nexus AI Consulting",
+    "description": "Enterprise AI engineering, scalable cloud infrastructure, and technical advisory for venture-backed startups and growth companies.",
+    "url": "https://nexusai-consulting.com",
+    "email": "hello@nexusai-consulting.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Francisco",
+      "addressRegion": "CA",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://github.com",
+      "https://linkedin.com",
+      "https://x.com"
+    ],
+    "priceRange": "$$$$"
+  }
+  </script>
   
   <!-- Modern Google Fonts: Plus Jakarta Sans (Headings) and Inter (Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -595,7 +634,7 @@
               <label class="control-label" for="speedRange">
                 <span>3. Desired Delivery Pace: <strong id="speedLabel" class="text-accent">Standard Pace (8-10 wks)</strong></span>
                 <!-- Mobile Live Price Mirror Badge (Package B) -->
-                <span class="mobile-price-mirror" id="mobilePriceMirror">Est: $7,500 – $9,800</span>
+                <span class="mobile-price-mirror" id="mobilePriceMirror">Est: $5,000 – $6,300</span>
               </label>
               <div class="slider-container">
                 <input type="range" id="speedRange" min="1" max="3" step="1" value="2" class="range-slider" aria-valuemin="1" aria-valuemax="3" aria-valuenow="2" aria-valuetext="Standard pace, 8 to 10 weeks" aria-label="Desired delivery pace">
@@ -615,7 +654,7 @@
             
             <div class="result-amount-display">
               <span class="est-label">Estimated Investment Range</span>
-              <div class="est-numbers" id="calcPriceDisplay">$7,500 – $9,800</div>
+              <div class="est-numbers" id="calcPriceDisplay">$5,000 – $6,300</div>
               <span class="est-subtext">Fixed sprint milestone pricing</span>
             </div>
 
@@ -626,7 +665,7 @@
               </div>
               <div class="detail-cell">
                 <span class="detail-title">Squad Composition</span>
-                <span class="detail-value" id="calcSquadDisplay">1 Tech Lead + 1 AI Eng</span>
+                <span class="detail-value" id="calcSquadDisplay">1 Tech Lead + 1 AI Specialist</span>
               </div>
             </div>
 
@@ -850,7 +889,7 @@
               <div class="estimate-chip-box" id="estimateChipBox" style="display: none;">
                 <div class="chip-content">
                   <span aria-hidden="true">✨</span>
-                  <span id="estimateChipText">Applied Blueprint: Custom AI Integration ($7,500 – $9,800)</span>
+                  <span id="estimateChipText">Applied Blueprint: Custom AI Integration ($5,000 – $6,300)</span>
                 </div>
                 <button type="button" class="chip-close-btn" id="clearEstimateChip" aria-label="Remove applied selection">&times;</button>
               </div>
@@ -919,7 +958,7 @@
               </form>
 
               <!-- Form Success Feedback State -->
-              <div class="form-success-box" id="formSuccessMessage" role="status" aria-live="polite">
+              <div class="form-success-box" id="formSuccessMessage" role="status" aria-live="polite" tabindex="-1">
                 <div class="success-icon" aria-hidden="true">✓</div>
                 <h4>Consultation Request Received!</h4>
                 <p>Thank you for reaching out. One of our lead architects will review your requirements and follow up at your email within 24 hours.</p>
@@ -994,10 +1033,11 @@
       <div class="footer-links-col">
         <h4 class="footer-heading">Stay Informed</h4>
         <p class="footer-news-text">Receive our bi-weekly breakdown of production AI architectures and cloud optimizations.</p>
-        <form class="footer-newsletter" id="newsletterForm" onsubmit="event.preventDefault(); alert('Subscribed to technical updates!');">
-          <input type="email" placeholder="you@company.com" required aria-label="Newsletter email input">
-          <button type="submit" class="btn btn-primary btn-sm">Join</button>
+        <form class="footer-newsletter" id="newsletterForm" novalidate>
+          <input type="email" id="newsletterEmail" placeholder="you@company.com" required aria-label="Newsletter email input">
+          <button type="submit" class="btn btn-primary btn-sm" id="newsletterSubmitBtn">Join</button>
         </form>
+        <div class="newsletter-status" id="newsletterStatus" role="status" aria-live="polite"></div>
       </div>
 
     </div>

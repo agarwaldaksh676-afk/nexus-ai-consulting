@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggleBtn = document.getElementById('themeToggleBtn');
   const themeIconSun = document.getElementById('themeIconSun');
   const themeIconMoon = document.getElementById('themeIconMoon');
+  const metaThemeColor = document.getElementById('metaThemeColor');
   const htmlRoot = document.documentElement;
 
   const savedTheme = localStorage.getItem('nexus_theme');
@@ -29,6 +30,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function applyTheme(theme) {
     htmlRoot.setAttribute('data-theme', theme);
     localStorage.setItem('nexus_theme', theme);
+
+    // Sync mobile browser address bar color
+    if (metaThemeColor) {
+      metaThemeColor.setAttribute('content', theme === 'dark' ? '#090D16' : '#F8FAFC');
+    }
 
     if (theme === 'dark') {
       if (themeIconSun) themeIconSun.style.display = 'none';
@@ -48,6 +54,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   applyTheme(initialTheme);
+
+  // Sync automatically if system OS theme preference changes and user has not set explicit override
+  const systemThemeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  if (systemThemeMediaQuery.addEventListener) {
+    systemThemeMediaQuery.addEventListener('change', (e) => {
+      if (!localStorage.getItem('nexus_theme')) {
+        applyTheme(e.matches ? 'dark' : 'light');
+      }
+    });
+  }
 
   if (themeToggleBtn) {
     themeToggleBtn.addEventListener('click', () => {
@@ -75,18 +91,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. Header Elevation Shadow
-    if (scrollY > 20) {
-      siteHeader.classList.add('scrolled');
-    } else {
-      siteHeader.classList.remove('scrolled');
+    if (siteHeader) {
+      if (scrollY > 20) {
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.classList.remove('scrolled');
+      }
     }
 
-    // 3. Show floating mobile CTA when scrolling past hero section
+    // 3. Toggle floating mobile CTA visibility smoothly
     if (floatingMobileCta) {
       if (scrollY > 480) {
-        floatingMobileCta.style.display = 'block';
+        floatingMobileCta.classList.add('visible');
       } else {
-        floatingMobileCta.style.display = 'none';
+        floatingMobileCta.classList.remove('visible');
       }
     }
   });
@@ -94,11 +112,26 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --------------------------------------------------------------------------
    * 3. ANIMATED METRICS COUNTER ON SCROLL (PACKAGE B)
    * Counts up numbers smoothly when scrolled into view using IntersectionObserver.
+   * Fully respects prefers-reduced-motion for accessibility compliance.
    * -------------------------------------------------------------------------- */
   const metricNumbers = document.querySelectorAll('.metric-number[data-target]');
   let metricsAnimated = false;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function renderFinalMetricValue(el) {
+    const target = parseFloat(el.getAttribute('data-target'));
+    const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    const prefix = el.getAttribute('data-prefix') || '';
+    const suffix = el.getAttribute('data-suffix') || '';
+    el.textContent = `${prefix}${target.toFixed(decimals)}${suffix}`;
+  }
 
   function animateCount(el) {
+    if (prefersReducedMotion) {
+      renderFinalMetricValue(el);
+      return;
+    }
+
     const target = parseFloat(el.getAttribute('data-target'));
     const decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
     const prefix = el.getAttribute('data-prefix') || '';
@@ -118,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (progress < 1) {
         requestAnimationFrame(updateCounter);
       } else {
-        el.textContent = `${prefix}${target.toFixed(decimals)}${suffix}`;
+        renderFinalMetricValue(el);
       }
     }
 
@@ -227,21 +260,42 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   /* --------------------------------------------------------------------------
-   * 7. PRICING BILLING SWITCH (15% QUARTERLY DISCOUNT)
+   * 7. PRICING BILLING SWITCH (15% QUARTERLY DISCOUNT) WITH BUTTON DATA SYNC
    * -------------------------------------------------------------------------- */
   const pricingToggle = document.getElementById('pricingToggle');
   const priceAmounts = document.querySelectorAll('.tier-amount[data-monthly]');
+  const tierButtons = document.querySelectorAll('.tier-select-btn');
+  const labelMonthly = document.getElementById('labelMonthly');
+  const labelQuarterly = document.getElementById('labelQuarterly');
+
+  function updateTierButtonPrices(isQuarterly) {
+    tierButtons.forEach(btn => {
+      const tierName = btn.getAttribute('data-tier') || '';
+      if (tierName.includes('Advisory')) {
+        btn.setAttribute('data-price', isQuarterly ? '$3,825/mo (Quarterly Retainer)' : '$4,500/mo (Monthly Sprint)');
+      } else if (tierName.includes('Growth')) {
+        btn.setAttribute('data-price', isQuarterly ? '$8,330/mo (Quarterly Retainer)' : '$9,800/mo (Monthly Sprint)');
+      } else if (tierName.includes('Enterprise')) {
+        btn.setAttribute('data-price', 'Custom Scope');
+      }
+    });
+  }
 
   if (pricingToggle) {
     pricingToggle.addEventListener('change', () => {
       const isQuarterly = pricingToggle.checked;
       pricingToggle.setAttribute('aria-checked', isQuarterly ? 'true' : 'false');
 
+      if (labelMonthly) labelMonthly.classList.toggle('active-label', !isQuarterly);
+      if (labelQuarterly) labelQuarterly.classList.toggle('active-label', isQuarterly);
+
       priceAmounts.forEach(priceEl => {
         const monthlyPrice = priceEl.getAttribute('data-monthly');
         const quarterlyPrice = priceEl.getAttribute('data-quarterly');
         priceEl.textContent = isQuarterly ? quarterlyPrice : monthlyPrice;
       });
+
+      updateTierButtonPrices(isQuarterly);
     });
   }
 
@@ -271,6 +325,33 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentScopeLevel = 'Production Ready System';
   let currentSpeedPace = 2; // 1 = Flexible, 2 = Standard, 3 = Accelerated
 
+  function getSquadText(typeName, pace) {
+    const isAi = typeName.includes('AI');
+    const isWeb = typeName.includes('Web');
+    const isCloud = typeName.includes('Cloud');
+    const isAudit = typeName.includes('Audit') || typeName.includes('Security');
+
+    if (pace === 1) { // Flexible Pace
+      if (isAi) return '1 Dedicated AI Specialist';
+      if (isWeb) return '1 Senior Full-Stack Eng';
+      if (isCloud) return '1 Dedicated DevOps Eng';
+      if (isAudit) return '1 Senior Security Auditor';
+      return '1 Dedicated Specialist Engineer';
+    } else if (pace === 2) { // Standard Pace
+      if (isAi) return '1 Tech Lead + 1 AI Specialist';
+      if (isWeb) return '1 Tech Lead + 1 Full-Stack Eng';
+      if (isCloud) return '1 Cloud Architect + 1 DevOps Eng';
+      if (isAudit) return '1 Principal Security Architect';
+      return '1 Tech Lead + 1 Specialist';
+    } else { // Accelerated Rush
+      if (isAi) return '2 Senior AI Engs + 1 Architect';
+      if (isWeb) return '2 Senior Web Engs + 1 Architect';
+      if (isCloud) return '2 DevOps Engs + 1 Cloud Architect';
+      if (isAudit) return '2 Security Auditors + 1 Principal';
+      return '2 Senior Engs + 1 Architect';
+    }
+  }
+
   function updateSliderFill() {
     if (!speedRange) return;
     const min = parseFloat(speedRange.min) || 1;
@@ -286,26 +367,24 @@ document.addEventListener('DOMContentLoaded', () => {
     let speedFactor = 1.0;
     let paceText = 'Standard Pace (8-10 wks)';
     let timelineWeeks = currentBaseWeeks;
-    let squadText = '1 Tech Lead + 1 AI Eng';
 
     if (currentSpeedPace == 1) {
       speedFactor = 0.9;
       paceText = 'Flexible Pace (Extended timeline)';
       timelineWeeks = Math.round(currentBaseWeeks * 1.3);
-      squadText = '1 Dedicated Lead Engineer';
     } else if (currentSpeedPace == 2) {
       speedFactor = 1.0;
       paceText = `Standard Pace (${currentBaseWeeks}–${currentBaseWeeks + 2} wks)`;
       timelineWeeks = currentBaseWeeks;
-      squadText = '1 Tech Lead + 1 Specialist';
     } else if (currentSpeedPace == 3) {
       speedFactor = 1.25;
       paceText = `Accelerated Rush (${Math.max(2, Math.round(currentBaseWeeks * 0.7))} wks)`;
       timelineWeeks = Math.max(2, Math.round(currentBaseWeeks * 0.7));
-      squadText = '2 Senior Engs + 1 Architect';
     }
 
     if (speedLabel) speedLabel.textContent = paceText;
+
+    const squadText = getSquadText(currentTypeName, currentSpeedPace);
 
     const rawCost = currentBaseCost * currentMultiplier * speedFactor;
     const lowCost = Math.round((rawCost * 0.9) / 100) * 100;
@@ -369,7 +448,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // "Apply This Estimate to Contact Form" Button (PRO MAX CRO ENHANCEMENT)
   if (applyEstimateBtn) {
-    applyEstimateBtn.addEventListener('click', () => {
+    applyEstimateBtn.addEventListener('click', (e) => {
+      e.preventDefault();
       const contactSection = document.getElementById('contact');
       const projectScopeSelect = document.getElementById('projectScopeSelect');
       const budgetTierSelect = document.getElementById('budgetTierSelect');
@@ -379,7 +459,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentTypeName.includes('AI')) projectScopeSelect.value = 'Custom AI / LLM Solutions';
         else if (currentTypeName.includes('Web')) projectScopeSelect.value = 'Full-Stack Web Engineering';
         else if (currentTypeName.includes('Cloud')) projectScopeSelect.value = 'Cloud Architecture & DevOps';
-        else if (currentTypeName.includes('Audit')) projectScopeSelect.value = 'Security Audit & Advisory';
+        else if (currentTypeName.includes('Audit') || currentTypeName.includes('Security')) projectScopeSelect.value = 'Security Audit & Advisory';
       }
 
       if (budgetTierSelect) {
@@ -401,6 +481,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (contactSection) {
         contactSection.scrollIntoView({ behavior: 'smooth' });
+        try { history.pushState(null, null, '#contact'); } catch (err) {}
       }
 
       if (contactCard) {
@@ -422,20 +503,23 @@ document.addEventListener('DOMContentLoaded', () => {
   /* --------------------------------------------------------------------------
    * 9. PRICING CARD "CHOOSE TIER" BUTTONS WITH PACKAGE CHIP (PACKAGE B CRO)
    * -------------------------------------------------------------------------- */
-  const tierButtons = document.querySelectorAll('.tier-select-btn');
   tierButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const tierName = btn.getAttribute('data-tier');
-      const tierPrice = btn.getAttribute('data-price');
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const tierName = btn.getAttribute('data-tier') || '';
+      const tierPrice = btn.getAttribute('data-price') || '';
       const budgetTierSelect = document.getElementById('budgetTierSelect');
+      const projectScopeSelect = document.getElementById('projectScopeSelect');
       const clientMessage = document.getElementById('clientMessage');
       const contactSection = document.getElementById('contact');
 
       if (budgetTierSelect && tierName) {
         if (tierName.includes('Advisory')) {
           budgetTierSelect.value = '$5,000 - $10,000';
+          if (projectScopeSelect) projectScopeSelect.value = 'Security Audit & Advisory';
         } else if (tierName.includes('Growth')) {
           budgetTierSelect.value = '$10,000 - $25,000';
+          if (projectScopeSelect) projectScopeSelect.value = 'Custom AI / LLM Solutions';
         } else if (tierName.includes('Enterprise')) {
           budgetTierSelect.value = '$25,000 - $50,000+';
         }
@@ -453,6 +537,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (contactSection) {
         contactSection.scrollIntoView({ behavior: 'smooth' });
+        try { history.pushState(null, null, '#contact'); } catch (err) {}
       }
 
       if (contactCard) {
@@ -536,13 +621,36 @@ document.addEventListener('DOMContentLoaded', () => {
         messageInput.setAttribute('aria-invalid', 'false');
       }
 
-      if (!hasError) {
+      if (hasError) {
+        // WCAG Accessibility: Shift keyboard focus to the first invalid field
+        const firstErrorField = consultationForm.querySelector('.form-group.has-error input, .form-group.has-error textarea');
+        if (firstErrorField) {
+          firstErrorField.focus();
+          firstErrorField.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
+
+      // Realistic tactile submission feedback state
+      const submitBtn = document.getElementById('submitFormBtn');
+      const originalBtnContent = submitBtn ? submitBtn.innerHTML : '';
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span>Transmitting Inquiry...</span>`;
+      }
+
+      setTimeout(() => {
         consultationForm.style.display = 'none';
         if (estimateChipBox) estimateChipBox.style.display = 'none';
         if (formSuccessMessage) {
           formSuccessMessage.classList.add('active');
+          formSuccessMessage.focus();
         }
-      }
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = originalBtnContent;
+        }
+      }, 400);
     });
 
     // Clear error states on user input
@@ -564,8 +672,43 @@ document.addEventListener('DOMContentLoaded', () => {
         if (formSuccessMessage) {
           formSuccessMessage.classList.remove('active');
         }
+        const nameInput = document.getElementById('clientName');
+        if (nameInput) nameInput.focus();
       });
     }
+  }
+
+  /* --------------------------------------------------------------------------
+   * 12. FOOTER NEWSLETTER FORM (ACCESSIBLE INLINE FEEDBACK)
+   * -------------------------------------------------------------------------- */
+  const newsletterForm = document.getElementById('newsletterForm');
+  const newsletterEmail = document.getElementById('newsletterEmail');
+  const newsletterStatus = document.getElementById('newsletterStatus');
+  const newsletterSubmitBtn = document.getElementById('newsletterSubmitBtn');
+
+  if (newsletterForm && newsletterEmail) {
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const emailVal = newsletterEmail.value.trim();
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!emailPattern.test(emailVal)) {
+        if (newsletterStatus) {
+          newsletterStatus.innerHTML = '<span class="status-error">Please enter a valid work email address.</span>';
+        }
+        newsletterEmail.focus();
+        return;
+      }
+
+      if (newsletterSubmitBtn) newsletterSubmitBtn.disabled = true;
+      if (newsletterStatus) {
+        newsletterStatus.innerHTML = '<span class="status-success">✓ You are subscribed! Check your inbox for technical briefings.</span>';
+      }
+      newsletterForm.reset();
+      setTimeout(() => {
+        if (newsletterSubmitBtn) newsletterSubmitBtn.disabled = false;
+      }, 3500);
+    });
   }
 
 });
